@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL History</title>
+</head>
+<body>
+
+<h2>URL History</h2>
+
+{% if urls|length == 0 %}
+<p>No URLs shortened yet.</p>
+{% else %}
+<table border="1">
+<tr>
+    <th>Original URL</th>
+    <th>Short URL</th>
+</tr>
+
+{% for url in urls %}
+<tr>
+    <td>{{ url.original_url }}</td>
+    <td>{{ request.host_url }}{{ url.short_url }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+<br>
+<a href="/">Back to Home</a>
+
+</body>
+</html>
